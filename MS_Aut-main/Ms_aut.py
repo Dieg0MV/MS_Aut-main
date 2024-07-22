@@ -105,6 +105,7 @@ class MSsingle:
                 chat_box.send_keys(Keys.ENTER)
                 time.sleep(3)
 
+"""
 while True:
     option = int(input("Seleccione 1 si quieres enviar un mensaje con imagen, 2 para un mensaje simple: "))
     if option == 1:
@@ -117,3 +118,5 @@ while True:
         break
     else:
         print("Opción no válida. Por favor, seleccione 1 o 2.")
+
+"""
