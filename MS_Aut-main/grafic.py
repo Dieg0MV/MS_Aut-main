@@ -8,13 +8,13 @@ from selenium.webdriver.edge.service import Service as EdgeService
 
 
 root = Tk()
-root.title("Sender")
-root.geometry("400x300")
+root.title("MS_AUT")
+root.geometry("600x500")
 frm = ttk.Frame(root, padding=10)
 frm.grid()
 
 def send():
-    message.get("1.0", "end-1c")
+    message = message_text.get("1.0", "end-1c")
     filename = file_path.get()
     
     driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()))
@@ -56,18 +56,14 @@ def select_file():
     file_path.set(filedialog.askopenfilename())
 
 
-ttk.Label(frm, text="MS_AUT").grid(column=0, row=0)
-ttk.Button(frm, text="", ).grid(column=2, row=1)
- 
 ttk.Label(frm, text="Ingresa tu mensaje").grid(column=0, row=2, pady=(10, 0))
 message_text = Text(frm, height=10, width=40)
-message_text.grid(column=0, row=1, columnspan=4, pady=(5, 10))
+message_text.grid(column=0, row=2, columnspan=4, pady=(5, 10))
 
-ttk.Button(frm, text="Seleccionar archivo de Excel", command=select_file).grid(column=0, row=2, pady=(5, 0))
+ttk.Button(frm, text="Seleccionar archivo de Excel", command=select_file).grid(column=4, row=1)
 file_path = StringVar()
-ttk.Entry(frm, textvariable=file_path, width=40).grid(column=0, row=3, columnspan=4, pady=(5, 10))
 
-ttk.Button(frm, text="Send", command=send).grid(column=0, row=4, pady=(5, 0))
-
+ttk.Button(frm, text="Send", command=send).grid(column=0, row=4)
+ttk.Button(frm, text="quit", command=root.destroy).grid(column=1, row=4)
 root.mainloop()
 
