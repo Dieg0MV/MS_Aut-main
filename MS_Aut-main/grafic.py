@@ -56,21 +56,16 @@ def select_file():
     file_path.set(filedialog.askopenfilename())
 
 
-
 ttk.Label(frm, text="MS_AUT").grid(column=0, row=0)
 ttk.Button(frm, text="", ).grid(column=2, row=1)
  
 ttk.Label(frm, text="Ingresa tu mensaje").grid(column=0, row=2, pady=(10, 0))
-
-
-textExample = ttk.Entry(frm)
-textExample.grid(column=0, row=3, columnspan=4, pady=(5, 10))
+message_text = Text(frm, height=10, width=40)
+message_text.grid(column=0, row=1, columnspan=4, pady=(5, 10))
 
 ttk.Button(frm, text="Seleccionar archivo de Excel", command=select_file).grid(column=0, row=2, pady=(5, 0))
 file_path = StringVar()
 ttk.Entry(frm, textvariable=file_path, width=40).grid(column=0, row=3, columnspan=4, pady=(5, 10))
-
-
 
 ttk.Button(frm, text="Send", command=send).grid(column=0, row=4, pady=(5, 0))
 
